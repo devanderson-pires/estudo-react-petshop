@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
-import * as Styled from './styled';
+import * as Styled from './styles';
 import logoImg from '../../assets/images/doguito.svg';
 import menuImg from '../../assets/images/menu.svg';
 
-const Header = (): JSX.Element => {
+interface HeaderProps {
+	toggleTheme(): void;
+}
+
+const Header: React.FC<HeaderProps> = ({toggleTheme}): JSX.Element => {
 	const [isActive, setIsActive] = useState(false);
+
+	const handleClickOpenMenu = () => {
+		setIsActive(!isActive);
+	};
 	
 	return (
 		<Styled.Header isActive={isActive}>
-			<Styled.MenuHamb src={menuImg} role='button' onClick={() => setIsActive(!isActive)} />
+			<Styled.MenuHamb src={menuImg} role='button' onClick={handleClickOpenMenu} />
 
 			<Styled.LogoWrapper>
 				<Styled.LogoLink to='/'>

@@ -6,9 +6,9 @@ interface NavProps {
 }
 
 export const Header = styled.header<NavProps>`
-  background-color: #fff;
+  background-color: ${props => props.theme.boxes};
   border-radius: ${props => !props.isActive ? '0 0 10px 10px;' : 'unset'}
-  box-shadow: 0 5px 10px #55a6ff38;
+  box-shadow: 0 5px 10px ${props => props.theme.shadowColor};
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   height: 4.75rem;
@@ -100,7 +100,7 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
-  border-bottom: 1px solid #dadada;
+  border-bottom: 1px solid ${props => props.theme.details};
   display: flex;
 
   &:last-child {
@@ -126,7 +126,7 @@ export const ItemLink = styled(Link)`
     width: unset;
 
     &:focus, &:hover {
-      color: #0071ea;
+      color: ${props => props.theme.hover};
     }
   }
 `;
