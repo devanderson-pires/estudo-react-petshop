@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { ThemeContext } from 'styled-components';
 import * as Styled from './styles';
 import logoImg from '../../assets/images/doguito.svg';
 import menuImg from '../../assets/images/menu.svg';
@@ -9,6 +10,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({toggleTheme}): JSX.Element => {
 	const [isActive, setIsActive] = useState(false);
+	const theme = useContext(ThemeContext);
 
 	const handleClickOpenMenu = () => {
 		setIsActive(!isActive);
@@ -38,6 +40,19 @@ const Header: React.FC<HeaderProps> = ({toggleTheme}): JSX.Element => {
 					</Styled.ListItem>
 				</Styled.List>
 			</Styled.Nav>
+
+			<Styled.Switch 
+				onChange={toggleTheme}
+				checked={theme.title === 'dark' ? true : false}
+				checkedIcon={false}
+				uncheckedIcon={false}
+				onColor={theme.colors.hover}
+				offColor={theme.colors.details}
+				height={10}
+				width={40}
+				handleDiameter={20}
+				offHandleColor={theme.colors.hover}
+			/>
 		</Styled.Header>
 	);
 };

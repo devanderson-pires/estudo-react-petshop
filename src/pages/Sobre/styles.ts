@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const Card = styled.article`
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.boxes};
   border-radius: 10px;
-  box-shadow: 0 5px 10px #55a6ff38;
+  box-shadow: 0 5px 10px ${props => props.theme.colors.shadowColor};
   box-sizing: border-box;
   margin-bottom: 1rem;
   max-width: 45rem;

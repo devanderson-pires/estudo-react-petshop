@@ -5,7 +5,7 @@ import GlobalStyle from './components/GlobalStyle';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Sobre from './pages/Sobre';
-import { light, dark } from './components/UI/theme';
+import { dark, light} from './components/UI/theme';
 
 function App(): JSX.Element {
 	const [theme, setTheme] = useState(light);

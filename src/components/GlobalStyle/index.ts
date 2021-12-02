@@ -7,8 +7,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: #d6eaff;
-    color: #4d4d4d;
+    background-color: ${props => props.theme.colors.body};
+    color: ${props => props.theme.colors.textColor};
     font-family: 'Montserrat', sans-serif;
   }
   

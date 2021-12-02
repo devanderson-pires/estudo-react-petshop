@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import ReactSwitch from 'react-switch';
 import styled from 'styled-components';
 
 interface NavProps {
@@ -6,9 +7,9 @@ interface NavProps {
 }
 
 export const Header = styled.header<NavProps>`
-  background-color: ${props => props.theme.boxes};
+  background-color: ${props => props.theme.colors.boxes};
   border-radius: ${props => !props.isActive ? '0 0 10px 10px;' : 'unset'}
-  box-shadow: 0 5px 10px ${props => props.theme.shadowColor};
+  box-shadow: 0 5px 10px ${props => props.theme.colors.shadowColor};
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   height: 4.75rem;
@@ -16,7 +17,7 @@ export const Header = styled.header<NavProps>`
 
   @media(min-width: 992px) {
     align-items: center;
-    grid-template-areas: "menu logo";
+    grid-template-areas: "menu logo switch";
     height: 6.75rem;
   }
 `;
@@ -28,7 +29,6 @@ export const MenuHamb = styled.img`
   top: 50%;
   transform: translateY(-50%);
   width: 1.75rem;
-  z-index: 2;
 
   @media(min-width: 992px) {
     display: none;
@@ -40,11 +40,10 @@ export const LogoWrapper = styled.div`
   grid-column: span 3;
   grid-row: none;
   justify-self: center;
-  z-index: 1;
 
   @media(min-width: 992px) {
-    grid-column: unset;
     grid-area: logo;
+    grid-column: unset;
   }
 `;
 
@@ -70,7 +69,7 @@ export const Title = styled.h1`
 export const Nav = styled.nav<NavProps>`
   background-color: inherit;
   border-radius: 0 0 10px 10px;
-  box-shadow: ${props => props.isActive ? '0 5px 10px #55a6ff38;' : 'unset'}
+  box-shadow: ${props => props.isActive ? '0 5px 10px' + props.theme.colors.shadowColor + ';' : 'unset'}
   font-size: 1.2rem;
   font-weight: 500;
   justify-self: flex-start;
@@ -100,7 +99,7 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
-  border-bottom: 1px solid ${props => props.theme.details};
+  border-bottom: 1px solid ${props => props.theme.colors.details};
   display: flex;
 
   &:last-child {
@@ -126,7 +125,23 @@ export const ItemLink = styled(Link)`
     width: unset;
 
     &:focus, &:hover {
-      color: ${props => props.theme.hover};
+      color: ${props => props.theme.colors.hover};
     }
+  }
+`;
+
+export const Switch = styled(ReactSwitch)`
+  left: 0;
+  position: absolute !important;
+  top: 50%;
+  transform: translateY(-50%);
+
+  @media(min-width: 992px) {
+    grid-area: switch;
+    justify-self: flex-end;
+    left: unset;
+    position: relative !important;
+    top: unset;
+    transform: unset;
   }
 `;
