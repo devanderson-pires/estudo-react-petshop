@@ -1,12 +1,13 @@
 import React from 'react';
+import { PageTitle } from '../../components/GlobalStyle';
 import * as Styled from './styles';
 
 const Sobre = (): JSX.Element => {
 	return (
-		<main>
-			<h2>Sobre Doguito</h2>
+		<main className='container'>
+			<PageTitle>Sobre Doguito</PageTitle>
 
-			<section>
+			<section className='flex flex--centro'>
 				<Styled.Card>
           O blog do doguito foi criado para tirar diversas dúvidas sobre o mundo pet!!!
 				</Styled.Card>

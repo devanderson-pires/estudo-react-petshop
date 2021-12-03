@@ -15,35 +15,43 @@ const Header: React.FC<HeaderProps> = ({toggleTheme}): JSX.Element => {
 
 	return (
 		<Styled.Header isActive={isActive}>
-			<Styled.Burger isActive={isActive} role='button' onClick={handleToggleMenu}>
-				<div />
-				<div />
-				<div />
-			</Styled.Burger>
+			<div className='container'>
+				<Styled.Burger isActive={isActive} role='button' onClick={handleToggleMenu}>
+					<div />
+					<div />
+					<div />
+				</Styled.Burger>
 
-			<Styled.Menu isActive={isActive}>
+				<Styled.DesktopMenu>
+					<Styled.NavLink to='/produtos'>Produtos</Styled.NavLink>
+					<Styled.NavLink to='/'>Blog</Styled.NavLink>
+					<Styled.NavLink to='/sobre'>Sobre</Styled.NavLink>
+				</Styled.DesktopMenu>
+
+				<Styled.LogoLink to='/'>
+					<Styled.LogoImg src={logoImg} />
+					<Styled.Title>PetShop</Styled.Title>
+				</Styled.LogoLink>
+
+				<Styled.Switch 
+					onChange={toggleTheme}
+					checked={theme.title === 'dark' ? true : false}
+					checkedIcon={false}
+					uncheckedIcon={false}
+					onColor={theme.colors.hover}
+					offColor={theme.colors.details}
+					height={10}
+					width={40}
+					handleDiameter={20}
+					offHandleColor={theme.colors.hover}
+				/>
+			</div>
+
+			<Styled.MobileMenu isActive={isActive}>
 				<Styled.NavLink to='/produtos' onClick={handleToggleMenu}>Produtos</Styled.NavLink>
 				<Styled.NavLink to='/' onClick={handleToggleMenu}>Blog</Styled.NavLink>
 				<Styled.NavLink to='/sobre' onClick={handleToggleMenu}>Sobre</Styled.NavLink>
-			</Styled.Menu>
-
-			<Styled.LogoLink to='/'>
-				<Styled.LogoImg src={logoImg} />
-				<Styled.Title>PetShop</Styled.Title>
-			</Styled.LogoLink>
-
-			<Styled.Switch 
-				onChange={toggleTheme}
-				checked={theme.title === 'dark' ? true : false}
-				checkedIcon={false}
-				uncheckedIcon={false}
-				onColor={theme.colors.hover}
-				offColor={theme.colors.details}
-				height={10}
-				width={40}
-				handleDiameter={20}
-				offHandleColor={theme.colors.hover}
-			/>
+			</Styled.MobileMenu>
 		</Styled.Header>
 	);
 };

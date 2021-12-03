@@ -1,9 +1,10 @@
 import React from 'react';
+import { PageTitle } from '../../components/GlobalStyle';
 
 const Home = (): JSX.Element => {
 	return (
-		<main>
-			<h2>Pet notícias</h2>
+		<main className='container'>
+			<PageTitle>Pet notícias</PageTitle>
 		</main>
 	);
 };

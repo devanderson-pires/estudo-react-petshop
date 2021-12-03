@@ -6,15 +6,21 @@ export const Header = styled.header<NavProps>`
   background-color: ${props => props.theme.colors.boxes};
   border-radius: ${props => props.isActive ? 'unset' : '0 0 10px 10px'};
   box-shadow: ${props => props.isActive ? 'unset' : '0 5px 10px ' + props.theme.colors.shadowColor};
-  display: grid;
-  grid-template-areas: "menu logo switch";
-  grid-template-columns: repeat(3, 1fr);
-  height: 4.75rem;
   transition: all .25s ease-in-out;
+  
+  > div {    
+    display: grid;
+    grid-template-areas: "menu logo switch";
+    grid-template-columns: repeat(3, 1fr);
+    height: 4.75rem;
+  }
 
   @media(min-width: 992px) {
     grid-template-areas: "nav logo switch";
-    height: 6.75rem;
+    
+    > div {
+      height: 6.75rem;
+    }
   }
 `;
 
@@ -85,7 +91,7 @@ export const Burger = styled.div<NavProps>`
   }
 `;
 
-export const Menu = styled.nav<NavProps>`
+export const MobileMenu = styled.nav<NavProps>`
   background-color: ${props => props.theme.colors.boxes};
   display: flex;
   flex-direction: column;
@@ -97,14 +103,16 @@ export const Menu = styled.nav<NavProps>`
   width: 100vw;
 
   @media(min-width: 992px) {
+    display: none;
+  }
+`;
+
+export const DesktopMenu = styled.nav`
+  display: none;
+
+  @media(min-width: 992px) {
     align-self: center;
-    background-color: unset;
     display: inline-flex;
-    flex-direction: unset;
-    height: unset;
-    position: unset;
-    transform: unset;
-    width: unset;
   }
 `;
 
