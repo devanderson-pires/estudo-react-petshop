@@ -2,44 +2,35 @@ import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import * as Styled from './styles';
 import logoImg from '../../assets/images/doguito.svg';
-import menuImg from '../../assets/images/menu.svg';
 
 interface HeaderProps {
 	toggleTheme(): void;
 }
 
 const Header: React.FC<HeaderProps> = ({toggleTheme}): JSX.Element => {
-	const [isActive, setIsActive] = useState(false);
 	const theme = useContext(ThemeContext);
+	const [isActive, setIsActive] = useState(false);
 
-	const handleClickOpenMenu = () => {
-		setIsActive(!isActive);
-	};
-	
+	const handleToggleMenu = () => { setIsActive(!isActive); };
+
 	return (
 		<Styled.Header isActive={isActive}>
-			<Styled.MenuHamb src={menuImg} role='button' onClick={handleClickOpenMenu} />
+			<Styled.Burger isActive={isActive} role='button' onClick={handleToggleMenu}>
+				<div />
+				<div />
+				<div />
+			</Styled.Burger>
 
-			<Styled.LogoWrapper>
-				<Styled.LogoLink to='/'>
-					<Styled.Logo src={logoImg} alt="" />
-					<Styled.Title>PetShop</Styled.Title>
-				</Styled.LogoLink>
-			</Styled.LogoWrapper>
+			<Styled.Menu isActive={isActive}>
+				<Styled.NavLink to='/produtos' onClick={handleToggleMenu}>Produtos</Styled.NavLink>
+				<Styled.NavLink to='/' onClick={handleToggleMenu}>Blog</Styled.NavLink>
+				<Styled.NavLink to='/sobre' onClick={handleToggleMenu}>Sobre</Styled.NavLink>
+			</Styled.Menu>
 
-			<Styled.Nav isActive={isActive}>
-				<Styled.List>
-					<Styled.ListItem>
-						<Styled.ItemLink to='/produtos'>Produtos</Styled.ItemLink>
-					</Styled.ListItem>
-					<Styled.ListItem>
-						<Styled.ItemLink to='/'>Blog</Styled.ItemLink>
-					</Styled.ListItem>
-					<Styled.ListItem>
-						<Styled.ItemLink to='/sobre'>Sobre</Styled.ItemLink>
-					</Styled.ListItem>
-				</Styled.List>
-			</Styled.Nav>
+			<Styled.LogoLink to='/'>
+				<Styled.LogoImg src={logoImg} />
+				<Styled.Title>PetShop</Styled.Title>
+			</Styled.LogoLink>
 
 			<Styled.Switch 
 				onChange={toggleTheme}
