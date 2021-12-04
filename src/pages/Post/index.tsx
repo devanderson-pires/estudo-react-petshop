@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { search } from '../../services/api';
 import * as Styled from './styles';
 
@@ -11,9 +11,12 @@ type Post = {
 const Post = (): JSX.Element => {
 	const { id } = useParams();
 	const [post, setPost] = useState<Post>(Object);
+	const navigate = useNavigate();
 
 	useEffect(() => {
-		search(`/posts/${id}`, setPost).catch(error => console.error(error));
+		search(`/posts/${id}`, setPost).catch(() => {
+			navigate('/404');
+		});
 	}, [id]);
 
 	return (

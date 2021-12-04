@@ -23,6 +23,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+  p { margin: 0; }
+
   .container {
     padding: 0 1rem;
 
@@ -38,6 +40,10 @@ const GlobalStyle = createGlobalStyle`
   .flex--centro {
     align-items: center;
     justify-content: center;
+  }
+
+  .flex--column {
+    flex-direction: column;
   }
 `;
 
