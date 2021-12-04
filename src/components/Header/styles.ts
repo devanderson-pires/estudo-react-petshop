@@ -118,6 +118,7 @@ export const DesktopMenu = styled.nav`
 
 export const NavLink = styled(Link)`
   display: block;
+  font-weight: 500;
   padding: 1.5rem 0 1.5rem 1.5rem;
   width: 100vw;
 

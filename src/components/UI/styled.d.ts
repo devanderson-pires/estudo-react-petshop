@@ -11,6 +11,8 @@ declare module 'styled-components' {
       hover: string;
       shadowColor: string;
       textColor: string;
+      postBorderTopColor1: string;
+      postBorderTopColor2: string;
     }
   }
 }

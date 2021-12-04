@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { ThemeContext } from 'styled-components';
 import { search } from '../../services/api';
+import * as Styled from './styes';
 
 interface PostsProps {
 	id: number;
@@ -13,25 +14,30 @@ interface PostsProps {
 
 const ListaPosts = ({ url }: { url: string }) => {
 	const [posts, setPosts] = useState<PostsProps[]>([]);
+	const theme = useContext(ThemeContext);
 
 	useEffect(() => {
 		search(url, setPosts);
 	}, [url]);
 
 	return (
-		<section className='container'>
+		<Styled.PostSection>
 			{
 				posts.map(post => (
-					<Link to={`posts/${post.id}`} key={post.id}>
+					<Styled.PostLink
+						to={`posts/${post.id}`}
+						style={post.categoria === 'bem-estar' ? { borderColor: theme.colors.postBorderTopColor1 } : { borderColor: theme.colors.postBorderTopColor2 }}
+						key={post.id}
+					>
 						<article>
-							<h3>{post.title}</h3>
+							<Styled.PostTitle>{post.title}</Styled.PostTitle>
 
-							<p>{post.metadescription}</p>
+							<Styled.PostMeta>{post.metadescription}</Styled.PostMeta>
 						</article>
-					</Link>
+					</Styled.PostLink>
 				))
 			}
-		</section>
+		</Styled.PostSection>
 	);
 };
 

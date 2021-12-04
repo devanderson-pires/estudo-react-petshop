@@ -10,7 +10,9 @@ import {
 	lightDetails,
 	lightHoverDetails,
 	lightShadowColor,
-	lightTextColor
+	lightTextColor,
+	postBorderTopColor1,
+	postBorderTopColor2
 } from './variables';
 
 export const light = {
@@ -22,7 +24,9 @@ export const light = {
 		details: lightDetails,
 		hover: lightHoverDetails,
 		shadowColor: lightShadowColor,
-		textColor: lightTextColor
+		textColor: lightTextColor,
+		postBorderTopColor1: postBorderTopColor1,
+		postBorderTopColor2: postBorderTopColor2
 	}
 };
 
@@ -35,6 +39,8 @@ export const dark = {
 		details: darkDetails,
 		hover: darkHoverDetails,
 		shadowColor: darkShadowColor,
-		textColor: darkTextColor
+		textColor: darkTextColor,
+		postBorderTopColor1: postBorderTopColor1,
+		postBorderTopColor2: postBorderTopColor2
 	}
 };

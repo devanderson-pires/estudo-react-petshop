@@ -11,3 +11,6 @@ export const darkDetails = '#dadada';
 export const darkHoverDetails = '#0071ea';
 export const darkShadowColor = '#30303d38';
 export const darkTextColor = '#fff';
+
+export const postBorderTopColor1 = '#ff4949';
+export const postBorderTopColor2 = '#368dff';
