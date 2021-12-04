@@ -18,7 +18,7 @@ export const PostLink = styled(Link)`
   background-color: ${props => props.theme.colors.boxes};
   border-radius: 10px;
   border-top: 1rem solid;
-  box-shadow: unset;
+  box-shadow: ${props => '0 5px 10px ' + props.theme.colors.shadowColor};
   box-sizing: border-box;
   display: block;
   max-width: 25rem;

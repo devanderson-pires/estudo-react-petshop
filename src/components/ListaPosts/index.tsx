@@ -12,7 +12,7 @@ interface PostsProps {
 	subcategoria: string;
 }
 
-const ListaPosts = ({ url }: { url: string }) => {
+const ListaPosts = ({ url }: { url: string }): JSX.Element => {
 	const [posts, setPosts] = useState<PostsProps[]>([]);
 	const theme = useContext(ThemeContext);
 
