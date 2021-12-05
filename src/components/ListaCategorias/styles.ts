@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface LinkProps {
-  categoria: string;
+  categoria: string | undefined;
 }
 
 export const ListCategoria = styled.ul`

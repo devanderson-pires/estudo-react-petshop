@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Routes, useParams } from 'react-router';
-import { Link } from 'react-router-dom';
 import { PageTitle } from '../../components/GlobalStyle';
 import { ListaCategorias } from '../../components/ListaCategorias';
 import ListaPosts from '../../components/ListaPosts';
 import { search } from '../../services/api';
 import Subcategoria from '../Subcategoria';
+import * as Styled from '../../components/ListaCategorias/styles';
 
 const Categoria = (): JSX.Element => {
 	const { id } = useParams();
@@ -20,17 +20,21 @@ const Categoria = (): JSX.Element => {
 			<PageTitle>Pet notícias</PageTitle>
 			<ListaCategorias />
       
-			<ul className='container flex'>
+			<Styled.ListCategoria className='container flex'>
 				{
 					subcategorias.map(subcategoria => (
-						<li key={subcategoria}>
-							<Link to={`${subcategoria}`}>
+						<Styled.LinkCategoria 
+							to={`${subcategoria}`}
+							key={subcategoria}
+							categoria={id}
+						>
+							<li>
 								{subcategoria}
-							</Link>
-						</li>
+							</li>
+						</Styled.LinkCategoria>
 					))
 				}
-			</ul>
+			</Styled.ListCategoria>
 
 			<Routes>
 				<Route path={'/'} element={<ListaPosts url={`/posts?categoria=${id}`} />} />
