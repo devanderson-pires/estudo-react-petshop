@@ -25,7 +25,7 @@ const ListaPosts = ({ url }: { url: string }): JSX.Element => {
 			{
 				posts.map(post => (
 					<Styled.PostLink
-						to={`posts/${post.id}`}
+						to={`/posts/${post.id}`}
 						style={post.categoria === 'bem-estar' ? { borderColor: theme.colors.postBorderTopColor1 } : { borderColor: theme.colors.postBorderTopColor2 }}
 						key={post.id}
 					>
