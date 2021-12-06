@@ -9,6 +9,7 @@ import { dark, light} from './components/UI/theme';
 import Post from './pages/Post';
 import Page404 from './pages/Page404';
 import Categoria from './pages/Categoria';
+import Contato from './pages/Contato';
 
 function App(): JSX.Element {
 	const [theme, setTheme] = useState(light);
@@ -25,6 +26,7 @@ function App(): JSX.Element {
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/sobre' element={<Sobre />} />
+					<Route path='/contato' element={<Contato />} />
 					<Route path='/posts/:id' element={<Post />} />
 					<Route path='/categoria/:id/*' element={<Categoria />} />
 					<Route path='*' element={<Page404 />} />

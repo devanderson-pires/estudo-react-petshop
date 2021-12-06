@@ -26,6 +26,7 @@ const Header: React.FC<HeaderProps> = ({toggleTheme}): JSX.Element => {
 					<Styled.NavLink to='/produtos'>Produtos</Styled.NavLink>
 					<Styled.NavLink to='/'>Blog</Styled.NavLink>
 					<Styled.NavLink to='/sobre'>Sobre</Styled.NavLink>
+					<Styled.NavLink to='/contato'>Contato</Styled.NavLink>
 				</Styled.DesktopMenu>
 
 				<Styled.LogoLink to='/'>
@@ -51,6 +52,7 @@ const Header: React.FC<HeaderProps> = ({toggleTheme}): JSX.Element => {
 				<Styled.NavLink to='/produtos' onClick={handleToggleMenu}>Produtos</Styled.NavLink>
 				<Styled.NavLink to='/' onClick={handleToggleMenu}>Blog</Styled.NavLink>
 				<Styled.NavLink to='/sobre' onClick={handleToggleMenu}>Sobre</Styled.NavLink>
+				<Styled.NavLink to='/contato' onClick={handleToggleMenu}>Contato</Styled.NavLink>
 			</Styled.MobileMenu>
 		</Styled.Header>
 	);
