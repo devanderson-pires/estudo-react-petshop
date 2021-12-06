@@ -1,4 +1,5 @@
 import {
+	danger,
 	darkBodyBg,
 	darkBoxesBg,
 	darkDetails,
@@ -26,7 +27,8 @@ export const light = {
 		shadowColor: lightShadowColor,
 		textColor: lightTextColor,
 		postBorderTopColor1: postBorderTopColor1,
-		postBorderTopColor2: postBorderTopColor2
+		postBorderTopColor2: postBorderTopColor2,
+		error: danger
 	}
 };
 
@@ -41,6 +43,7 @@ export const dark = {
 		shadowColor: darkShadowColor,
 		textColor: darkTextColor,
 		postBorderTopColor1: postBorderTopColor1,
-		postBorderTopColor2: postBorderTopColor2
+		postBorderTopColor2: postBorderTopColor2,
+		error: danger
 	}
 };

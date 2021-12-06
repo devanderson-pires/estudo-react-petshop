@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface ValidationProps {
+  error: boolean;
+}
+
 export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,16 +18,16 @@ export const Label = styled.label`
   font-size: .875rem;
 `;
 
-export const Input = styled.input`
-  border: 1px solid ${props => props.theme.colors.body};
+export const Input = styled.input<ValidationProps>`
+  border: 1px solid ${props => props.error ? props.theme.colors.error : props.theme.colors.body};
   border-radius: 7px;
   font-weight: 300;
   margin-top: .5rem;
   padding: .5rem;
 `;
 
-export const Textarea = styled.textarea`
-  border: 1px solid ${props => props.theme.colors.body};
+export const Textarea = styled.textarea<ValidationProps>`
+  border: 1px solid ${props => props.error ? props.theme.colors.error : props.theme.colors.body};
   border-radius: 7px;
   font-weight: 300;
   margin-top: .5rem;
@@ -40,8 +44,14 @@ export const Button = styled.button`
   color: ${props => props.theme.colors.boxes};
   font-size: 1.2rem;
   font-weight: 500;
-  margin-top: 1rem;
+  margin: 1rem 0;
   max-width: 20rem;
   padding: 1.125rem;
   width: 100%;
+`;
+
+export const ErrorMsg = styled.span`
+  color: ${props => props.theme.colors.error};
+  font-size: .875rem;
+  margin-top: .5rem;
 `;

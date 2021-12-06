@@ -14,3 +14,5 @@ export const darkTextColor = '#fff';
 
 export const postBorderTopColor1 = '#ff4949';
 export const postBorderTopColor2 = '#368dff';
+
+export const danger = '#df2525';

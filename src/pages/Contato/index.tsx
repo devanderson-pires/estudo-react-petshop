@@ -1,5 +1,7 @@
 import React from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { PageTitle } from '../../components/GlobalStyle';
+import { ContatoInitialValues, ContatoSchema } from './schemas';
 import * as Styled from './styles';
 
 const Contato = () => {
@@ -7,26 +9,69 @@ const Contato = () => {
 		<main className="container">
 			<PageTitle>Contato</PageTitle>
 
-			<form>
-				<Styled.InputContainer>
-					<Styled.Label htmlFor="nome">Nome</Styled.Label>
-					<Styled.Input type="text" name="nome" id="nome" />
-				</Styled.InputContainer>
+			<Formik
+				initialValues={ContatoInitialValues}
+				validationSchema={ContatoSchema}
+				onSubmit={(values, actions) => {
+					setTimeout(() => {
+						console.log(values);
+						actions.setSubmitting(false);
+					}, 1000);
+				}}
+				// validateOnBlur={false}
+				// validateOnChange={false}
+			>
+				{({ errors, isSubmitting, touched }) => (
+					<Form>
+						<Styled.InputContainer>
+							<Styled.Label htmlFor="nome">Nome</Styled.Label>
+							<Field as={Styled.Input}
+								type="text"
+								name="nome"
+								id="nome"
+								error={errors.nome && touched.nome}
+							/>
 
-				<Styled.InputContainer>
-					<Styled.Label htmlFor="email">E-mail</Styled.Label>
-					<Styled.Input type="email" name="email" id="email" />
-				</Styled.InputContainer>
+							<ErrorMessage name='nome'>
+								{msg => <Styled.ErrorMsg role='alert'>{msg}</Styled.ErrorMsg>}
+							</ErrorMessage>
+						</Styled.InputContainer>
 
-				<Styled.InputContainer>
-					<Styled.Label htmlFor="mensagem">Mensagem</Styled.Label>
-					<Styled.Textarea name="mensagem" id="mensagem" />
-				</Styled.InputContainer>
+						<Styled.InputContainer>
+							<Styled.Label htmlFor="email">E-mail</Styled.Label>
+							<Field as={Styled.Input}
+								type="email"
+								name="email"
+								id="email"
+								error={errors.email && touched.email}
+							/>
 
-				<Styled.InputContainer>
-					<Styled.Button type="submit">Enviar</Styled.Button>
-				</Styled.InputContainer>
-			</form>
+							<ErrorMessage name='email'>
+								{msg => <Styled.ErrorMsg role='alert'>{msg}</Styled.ErrorMsg>}
+							</ErrorMessage>
+						</Styled.InputContainer>
+
+						<Styled.InputContainer>
+							<Styled.Label htmlFor="mensagem">Mensagem</Styled.Label>
+							<Field as={Styled.Textarea}
+								name="mensagem"
+								id="mensagem"
+								error={errors.mensagem && touched.mensagem}
+							/>
+
+							<ErrorMessage name='mensagem'>
+								{msg => <Styled.ErrorMsg role='alert'>{msg}</Styled.ErrorMsg>}
+							</ErrorMessage>
+						</Styled.InputContainer>
+
+						<Styled.InputContainer>
+							<Styled.Button type="submit">
+								{isSubmitting ? 'Enviando' : 'Enviar'}
+							</Styled.Button>
+						</Styled.InputContainer>
+					</Form>
+				)}
+			</Formik>
 		</main>
 	);
 };

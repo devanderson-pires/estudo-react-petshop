@@ -13,6 +13,7 @@ declare module 'styled-components' {
       textColor: string;
       postBorderTopColor1: string;
       postBorderTopColor2: string;
+      error: string;
     }
   }
 }
