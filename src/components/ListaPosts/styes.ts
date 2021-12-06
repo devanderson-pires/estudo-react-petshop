@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const PostSection = styled.section`
   display: grid;
   grid-gap: 2.25rem;
+  margin-bottom: 1rem;
 
   @media(min-width: 540px) {
     grid-template-columns: 1fr 1fr;

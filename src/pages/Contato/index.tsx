@@ -4,7 +4,7 @@ import { PageTitle } from '../../components/GlobalStyle';
 import { ContatoInitialValues, ContatoSchema } from './schemas';
 import * as Styled from './styles';
 
-const Contato = () => {
+const Contato = (): JSX.Element => {
 	return (
 		<main className="container">
 			<PageTitle>Contato</PageTitle>

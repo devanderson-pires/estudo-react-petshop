@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import ReactSwitch from 'react-switch';
 import styled from 'styled-components';
+import CustomLink from '../CustomLink';
 
 export const Header = styled.header<NavProps>`
   background-color: ${props => props.theme.colors.boxes};
@@ -116,7 +117,7 @@ export const DesktopMenu = styled.nav`
   }
 `;
 
-export const NavLink = styled(Link)`
+export const NavLink = styled(CustomLink)`
   display: block;
   font-weight: 500;
   padding: 1.5rem 0 1.5rem 1.5rem;
