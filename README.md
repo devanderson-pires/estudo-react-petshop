@@ -1,4 +1,7 @@
 # Petshop
+<div>
+  <img src=".github/cover.png" alt="" />
+</div>
 
 ## Tecnologias
 Projeto desenvolvido com as seguintes tecnologias:
