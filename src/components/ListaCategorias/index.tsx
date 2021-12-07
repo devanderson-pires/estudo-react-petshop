@@ -16,7 +16,7 @@ export const ListaCategorias = (): JSX.Element => {
 	}, []);
 
 	return (
-		<Styled.ListCategoria className='container flex'>
+		<Styled.ListCategoria className='flex'>
 			{
 				categorias.map(categoria => (
 					<Styled.LinkCategoria 

@@ -20,7 +20,7 @@ const Categoria = (): JSX.Element => {
 			<PageTitle>Pet notícias</PageTitle>
 			<ListaCategorias />
       
-			<Styled.ListCategoria className='container flex'>
+			<Styled.ListCategoria className='flex'>
 				{
 					subcategorias.map(subcategoria => (
 						<Styled.LinkCategoria 
