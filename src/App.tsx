@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
+import { DefaultTheme, ThemeProvider } from 'styled-components';
 import GlobalStyle from './components/GlobalStyle';
 import Header from './components/Header';
 import Home from './pages/Home';
@@ -10,9 +10,10 @@ import Post from './pages/Post';
 import Page404 from './pages/Page404';
 import Categoria from './pages/Categoria';
 import Contato from './pages/Contato';
+import useThemeLocalStorageState from './hooks/useThemeLocalStorageState';
 
 function App(): JSX.Element {
-	const [theme, setTheme] = useState(light);
+	const [theme, setTheme] = useThemeLocalStorageState<DefaultTheme>('theme', light);
 
 	const toggleTheme = () => {
 		setTheme(theme.title === 'light' ? dark : light);
