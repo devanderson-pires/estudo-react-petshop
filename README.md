@@ -1,6 +1,6 @@
 # Petshop
 <div>
-  <img src=".github/cover.png" alt="" />
+  <img src=".github/cover.jpg" alt="" />
 </div>
 
 ## Tecnologias
