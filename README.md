@@ -1,4 +1,4 @@
-# Petshop
+# PetShop
 <div>
   <img src=".github/cover.jpg" alt="" />
 </div>
@@ -31,3 +31,5 @@ Abra uma nova aba e inicie o projeto
 ```
 yarn start
 ```
+## Projeto
+Aprovetei um projeto do curso de React Router da Alura para refazê-lo do zero e implementar novas funcionalidades.
